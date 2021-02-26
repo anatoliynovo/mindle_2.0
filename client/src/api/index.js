@@ -3,7 +3,7 @@ import axios from 'axios';
 // https://mindle-app.herokuapp.com
 
 // Base URL
-const API = axios.create({ baseURL: 'http://localhost:5000' });
+const API = axios.create({ baseURL: 'https://mindle-app.herokuapp.com' });
 
 // will be used before all request;
 // send token to backend
