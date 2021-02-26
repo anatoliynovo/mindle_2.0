@@ -7,7 +7,7 @@ import { GoogleLogin } from 'react-google-login';
 import Input from './Input';
 import Icon from './Icon';
 
-import { signup, signin } from '../../actions/auth'
+import { signup, signin } from '../../actions/auth';
 
 import {
   Container,
@@ -38,13 +38,12 @@ const Auth = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    if(isSignUp) {
-      dispatch(signup(formData, history))
-    }else {
-      dispatch(signin(formData, history))
-    }
 
+    if (isSignUp) {
+      dispatch(signup(formData, history));
+    } else {
+      dispatch(signin(formData, history));
+    }
   };
 
   const handleChange = (e) => {
@@ -56,6 +55,7 @@ const Auth = () => {
 
   const switchMode = () => {
     setIsSignUp((prevIsSignUp) => !prevIsSignUp);
+    setShowPassword(false);
   };
 
   const googleSuccess = async (res) => {
