@@ -5,6 +5,17 @@ import axios from 'axios';
 // Base URL
 const API = axios.create({ baseURL: 'http://localhost:5000' });
 
+// will be used before all request;
+// send token to backend
+API.interceptors.request.use((req) => {
+  if (localStorage.getItem('profile')) {
+    req.headers.Authorization = `Bearer ${
+      JSON.parse(localStorage.getItem('profile')).token
+    }`;
+  }
+  return req;
+});
+
 
 // POSTS API REQUESTS
 export const fetchPosts = () => API.get('/posts');
